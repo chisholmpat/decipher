@@ -1,0 +1,24 @@
+{
+  "name": "decipher",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "4.13.3",
+    "multer": "1.1.0",
+    "watson-developer-cloud": "^2.1.2"
+  },
+  "description": "Repo for decipher",
+  "main": "servtest.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chisholmpat/decipher.git"
+  },
+  "author": "Patrick Chisholm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chisholmpat/decipher/issues"
+  },
+  "homepage": "https://github.com/chisholmpat/decipher#readme"
+}

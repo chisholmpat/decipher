@@ -1,0 +1,125 @@
+/*===========================
+    HTML Elements
+===========================*/
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+p{
+ font-size: 15px;
+}
+
+h1{
+  margin-left: 30px;
+  font-size: 50px;
+}
+
+option{
+  height:44px;
+  width:220px;
+  text-align: center;
+  padding-top:12px;
+}
+
+/*===========================
+    Custom Classes
+===========================*/
+
+.header {
+  background-color: #272B2B;
+  color: white;
+  text-align: center;
+  height: 280px;
+  padding-top: 1px
+}
+
+.headerimg{
+  text-align: right;
+  height:240px;
+  width:240px;
+  overflow: auto;
+}
+
+.output {
+  width: 220px;
+  height: 180px;
+}
+
+.center {
+  text-align: center;
+}
+
+.container {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.hidden {
+  display:none;
+}
+
+.capture {
+  color: white;
+  padding: 10px;
+  padding-right: 10px;
+  margin-left: 10%;
+  margin-right: 15%;
+  width: 300px;
+  z-index: 1;
+  background-color: rgb(16,114,189);
+}
+
+.capture:hover {
+  border: 1px solid rgb(16,114,189);
+  border-color: rgb(16,114,189);
+  background: white;
+  color:rgb(16,114,189);
+  cursor: pointer;
+}
+
+.decipher {
+  color: white;
+  padding: 10px;
+  padding-right: 10px;
+  margin-left: 10%;
+  margin-right: 15%;
+  width: 300px;
+  z-index: 1;
+  background-color: rgb(118,206,88);
+}
+
+.decipher:hover {
+  border: 1px solid rgb(118,206,88);
+  border-color: rgb(118,206,88);
+  background: white;
+  color:green;
+  cursor: pointer;
+}
+
+.form-group{
+  margin-right: 10%;
+  margin-left: 10%;
+  border: 1px solid black;
+  height: 180px;
+
+}
+
+.list-group{
+  width:310px;
+  margin-left: 50px;
+  padding-bottom: 15px;
+}
+
+.scaleDown{
+  width:100px; /* you can use % */
+  height: auto;
+}
+
+.watermark {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.1;
+  margin-left: -50px;
+}
