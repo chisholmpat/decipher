@@ -101,7 +101,7 @@ app.get('/test', function(req, res) {
    ================================ */
 app.post('/api/photo', function(req, res) {
   upload(req, res, function(err) {
-    if (!req.file.mimetype.match(/\.(jpg|jpeg|png|gif)$/)) {
+    if (!req.file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
       res.end("This application does not support that file extension.");
     }
     if (err) {
