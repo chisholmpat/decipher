@@ -18,17 +18,14 @@
     <div class="header">
       <h1>Decipher<img class="headerimg" src="watson.png"/></h1>
     </div>
-
       <!-- ===========================
             Capture Container
        =========================== -->
     <div class="row">
       <div class="col-md-4">
-        <h4>Step 1: Capture an image</h4>
-        
-
+        <h4>Step 1: Click Capture to select an image</h4>
         <form id="uploadForm" onsubmit="translate(event, this)">
-           <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
+          <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
           <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
           <img class="output" src="placeholder.png" id="output">
           <br><br>
@@ -39,28 +36,27 @@
 
       <div class="col-md-4">
         <h4>Step 2: Select desired language</h4>
-          <select size="4">
-            <option selected>English</option>
-            <option>Spanish</option>
-            <option>Arabic</option>
-            <option>Japanese</option>
-          </select>  
+          <select id="languageSelect" size="4">
+            <option value="en" selected>English</option>
+            <option value="es">Spanish</option>
+            <option value="ar">Arabic</option>
+            <option value="ja">Japanese</option>
+          </select>
           <br><br>
           <div class="decipher" id="uploadTrigger">DECIPHER</div>
       </div>
-
-  <div class="col-md-4">
-    <h4>Step 3: Click Decipher to translate</h4>
-    <form>
-      <div class="form-group">
-        <div id="translatedText"></div>
-        <br><br>
+ 
+      <div class="col-md-4">
+        <h4>Step 3: Click Decipher to translate</h4>
+        <form>
+          <div class="form-group">
+            <div id="translatedText"></div>
+            <br><br>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
-</div>
-      <br>
-      <img src="IBM_logo.svg" class="scaleDown watermark" />
+    </div>
+    <br>
 
       <!-- ===========================
                   Javascript 

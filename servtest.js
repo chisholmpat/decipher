@@ -10,15 +10,20 @@ var fs = require('fs');
 var languageTranslatorV2 = require(
   'watson-developer-cloud/language-translator/v2');
 var jimp = require('jimp');
+var bodyParser = require('body-parser');
 require("./public/js/resize.js");
 //Server var / Global
 var app = express();
-
 /* ================================
 		Init Server, Set path
    ================================ */
 //Set port to 3000
 app.set('port', 3000);
+//body-parser middle-ware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 //Define the default server path to /public
 app.use(express.static(__dirname + '/public'));
 //Generic error handling middle-ware, which passes uncaught exceptions to the default Node error handler
@@ -29,17 +34,18 @@ app.listen(process.env.PORT || 3000, function() {
 });
 
 function errorHandler(err, req, res, next) {
-  if (res.headersSent) {
-    return next(err);
-  }
-  res.status(500);
-  res.render('error', { error: err });
-}//End errorHandler
-
-/* ================================
+    if (res.headersSent) {
+      return next(err);
+    }
+    res.status(500);
+    res.render('error', {
+      error: err
+    });
+  } //End errorHandler
+  /* ================================
 			Multer Module
    ================================ */
-//Multer settings for images
+  //Multer settings for images
 var storage = multer.diskStorage({
     destination: './uploads/',
     filename: function(req, file, cb) {
@@ -49,12 +55,10 @@ var storage = multer.diskStorage({
       })
     }
   })
-  
-//Store Multer results
+  //Store Multer results
 var upload = multer({
   storage: storage
 }).single('userPhoto');
-
 /* ================================
 		Watson API Credentials
    ================================ */
@@ -68,7 +72,6 @@ var language_translator = new languageTranslatorV2({
   username: "c5393096-827e-49f8-961f-36120c6cda8a",
   password: "Igiv7HTwPRCD"
 });
-
 /* ================================
 		Classifiers
    ================================ */
@@ -91,11 +94,9 @@ app.get('/test', function(req, res) {
     else console.log(JSON.stringify(response, null, 2));
   });
 });
-
 /* ================================
     GET data from Client
    ================================ */
-   
 /* ================================
 		Post to Multer API
    ================================ */
@@ -107,18 +108,27 @@ app.post('/api/photo', function(req, res) {
     if (err) {
       res.end("Error uploading file.");
     }
-	
     var filename = req.file.destination + Date.now() + "resized.png";
     jimp.read(req.file.path, function(err, file) {
-      file.resize(200, 200).quality(100).write(filename, function(
-        err) {
-        if (err) {
-          console.log(err);
-        } else {
-          analyzeText(filename);
-          fs.unlinkSync(req.file.path);
-        } //End else
-      }); //End write function
+      if (err) {
+        console.log('I/O error:' + err);
+        res.end(
+          'An error occured while processing your image. Please try again.'
+        );
+      } else {
+        file.resize(200, 200).quality(100).write(filename, function(
+          err) {
+          if (err) {
+            console.log('I/O error: ' + err);
+            res.end(
+              'An error occured while processing your image. Please try again.'
+            );
+          } else {
+            analyzeText(filename);
+            fs.unlinkSync(req.file.path);
+          } //End else
+        }); //End write function
+      }//End if
     }); //End read function
     //console.log(req.file);
   }); //End upload function
@@ -130,7 +140,7 @@ app.post('/api/photo', function(req, res) {
       visual_recognition.recognizeText(params, function(err,
         resRecognizeText) {
         if (err) {
-          console.log(err);
+          console.log('recog error: ' + err);
           res.end(
             "Watson is experiencing difficulties... Please try again."
           )
@@ -143,27 +153,31 @@ app.post('/api/photo', function(req, res) {
               outText += json.images[item].words[index].word + " ";
             }
           }
-          translate(outText);
+          translate(outText, req.body.language);
         }
       });
     } //End analyzeTest
 
-  function translate(outText) {
-      language_translator.translate({
-        text: outText,
-        source: 'en',
-        target: 'es'
-      }, function(err, translation) {
-        if (err) console.log('error:', err);
-        else {
-          var translatedText = "";
-          var jsonTranslated = JSON.parse(JSON.stringify(translation,
-            null, 2));
-          for (var key in jsonTranslated.translations) {
-            translatedText += jsonTranslated.translations[key].translation;
-          }
-          res.end(translatedText);
+  function translate(outText, language) {
+    language_translator.translate({
+      text: outText,
+      source: 'en',
+      target: language
+    }, function(err, translation) {
+      if (err) {
+        console.log('translation error: ' + err);
+        res.end(
+          "An error occurred during translation.. Please try again."
+        );
+      } else {
+        var translatedText = "";
+        var jsonTranslated = JSON.parse(JSON.stringify(translation,
+          null, 2));
+        for (var key in jsonTranslated.translations) {
+          translatedText += jsonTranslated.translations[key].translation;
         }
-      });
-    } //End translate
+        res.end(translatedText);
+      }
+    });
+  }
 }); //End post
