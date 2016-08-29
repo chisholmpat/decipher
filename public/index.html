@@ -24,12 +24,6 @@
      =========================== -->
      <div class="example">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-             <!-- Carousel indicators -->
-             <!-- <ol class="carousel-indicators">
-                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                 <li data-target="#myCarousel" data-slide-to="2"></li>
-             </ol> -->
              <!-- Wrapper for carousel items -->
              <div class="carousel-inner">
                  <div class="item active">
@@ -40,20 +34,21 @@
                       <img class="output" src="placeholder.png" id="output">
                       <br><br>
                       <input type="submit" class="hidden" id="uploadFile" name="submit" >
-                      <div class="capture" id="captureTrigger" >CAPTURE</div>
+                      <div class="capture" id="captureTrigger" href="#myCarousel" data-slide="next">CAPTURE</div>
                     </form>
                  </div>
 
                  <div class="item">
+
                    <h4>Step 2: Select desired language</h4>
-                    <select id="languageSelect" size="4">
+                    <select id="languageSelect" size="4" href="#myCarousel" data-slide="next" class="lang-group">
                       <option value="en" selected>English</option>
                       <option value="es">Spanish</option>
                       <option value="ar">Arabic</option>
                       <option value="ja">Japanese</option>
                     </select><br><br>
 
-                    <div class="white" id="captureTrigger" >CAPITAL</div>
+                    <div class="white" id="captureTrigger">CAPITAL</div><!-- for spacing reasons -->
 
                  </div>
 
@@ -65,59 +60,25 @@
                         <br><br>
                       </div>
                     </form>
-                    <div class="decipher" id="uploadTrigger">DECIPHER</div>
+                    <div class="decipher" id="uploadTrigger" >DECIPHER</div>
                  </div>
-             </div>
-             <!-- Carousel controls -->
-             <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                 <span class="glyphicon glyphicon-chevron-left"></span>
-             </a>
-             <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                 <span class="glyphicon glyphicon-chevron-right"></span>
-             </a>
-         </div>
+
+                 <div class="carousel-controls">
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-hand-left" style="color:black"></span>
+                    </a>
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-hand-right" style="color:black"></span>
+                    </a>
+                </div>
+
      	</div> <!-- Carousel -->
-
-      <!-- ===========================
-            Capture Container
-       =========================== -->
-    <!-- <div class="row">
-      <div class="col-md-4">
-        <h4>Step 1: Click Capture to select an image</h4>
-        <form id="uploadForm" onsubmit="translate(event, this)">
-          <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
-          <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
-          <img class="output" src="placeholder.png" id="output">
-          <br><br>
-          <input type="submit" class="hidden" id="uploadFile" name="submit" >
-          <div class="capture" id="captureTrigger" >CAPTURE</div>
-        </form>
-      </div>
-
-      <div class="col-md-4">
-        <h4>Step 2: Select desired language</h4>
-          <select id="languageSelect" size="4">
-            <option value="en" selected>English</option>
-            <option value="es">Spanish</option>
-            <option value="ar">Arabic</option>
-            <option value="ja">Japanese</option>
-          </select>
-          <br><br>
-      </div>
-
-      <div class="col-md-4">
-        <h4>Step 3: Click Decipher to translate</h4>
-        <form>
-          <div class="form-group">
-            <div id="translatedText"></div>
-            <br><br>
-          </div>
-        </form>
-        <div class="decipher" id="uploadTrigger">DECIPHER</div>
-      </div>
-    </div>
-    <br> -->
-
+      
       <!-- ===========================
                   Javascript
        =========================== -->
@@ -130,6 +91,12 @@
       <!-- carousel -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+      <script>
+        $(document).ready(function(){
+          $("#myCarousel").carousel({
+            interval : false
+           });
+         });//stop auto scroll
+      </script>
    </body>
 </html>

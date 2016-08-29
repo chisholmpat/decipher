@@ -5,6 +5,7 @@
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #DFDFDF;
 }
 
 p{
@@ -64,8 +65,8 @@ option{
   color: white;
   padding: 10px;
   padding-right: 10px;
-  margin-left: 10%;
-  margin-right: 15%;
+  margin-left: 40%;
+  margin-right: 10%;
   width: 300px;
   z-index: 1;
   background-color: rgb(16,114,189);
@@ -83,8 +84,8 @@ option{
   color: white;
   padding: 10px;
   padding-right: 10px;
-  margin-left: 10%;
-  margin-right: 15%;
+  margin-left: 40%;
+  margin-right: 10%;
   width: 300px;
   z-index: 1;
   background-color: rgb(118,206,88);
@@ -100,10 +101,19 @@ option{
 
 .form-group{
   margin-right: 10%;
+  margin-left: 40%;
+  border: 1px solid black;
+  border-radius: 25px;
+  height: 180px;
+  width: 250px;
+}
+.lang-group{
+  margin-right: 10%;
   margin-left: 10%;
   border: 1px solid black;
+  border-radius: 25px;
   height: 180px;
-
+  width: 220px;
 }
 
 .list-group{
@@ -123,3 +133,40 @@ option{
   opacity: 0.1;
   margin-left: -50px;
 }
+.item{
+  padding-bottom: 12px;
+}
+.white{
+  color: #DFDFDF;
+  padding: 10px;
+  padding-right: 10px;
+  margin-left: 40%;
+  margin-right: 10%;
+  width: 300px;
+  z-index: 1;
+  background-color: #DFDFDF;
+}
+/*carousel code */
+.carousel-controls{
+ position: relative;
+  width:300px;
+  margin:5px auto;
+  border: none;
+}
+.carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+.carousel-indicators{
+   top:0px;
+   position: relative;
+}
+.carousel-indicators li{
+   background-color: rgb(118,206,88);
+}
+.carousel-indicators .active{
+  background-color: limegreen;
+}
+
+#slideshow { padding:0;border-radius: 25px; }
+.carousel img { border-radius: 25px; }
