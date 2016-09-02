@@ -1,5 +1,9 @@
 
-var language = document.getElementById("languageSelect");
+//var language = document.getElementById("languageSelect");
+//var language= $("#languageSelect").trigger("click"); not work
+var language= $('#languageSelect')[0]; //should be equal to getElementById
+//var language=$("languageSelect").get(0);
+
 
 function translate(event, form) {
 	var postData = new FormData();
@@ -20,8 +24,3 @@ function translate(event, form) {
 	event.preventDefault();
 	return false;
 }
-
-
-
-
-
