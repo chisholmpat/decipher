@@ -1,8 +1,7 @@
 
 //var language = document.getElementById("languageSelect");
-//var language= $("#languageSelect").trigger("click"); not work
-var language= $('#languageSelect')[0]; //should be equal to getElementById
-//var language=$("languageSelect").get(0);
+var language= $('#languageSelect')[0]; //should be equal to getElementById need ())[0]<-- because have to indicate a single dom object
+
 
 
 function translate(event, form) {
@@ -17,7 +16,8 @@ function translate(event, form) {
 		processData: false,
 		contentType: false,
 		success: function(responseData, status) {
-			document.getElementById("translatedText").innerHTML = responseData;
+			//document.getElementById("translatedText").innerHTML = responseData;
+			$('#translatedText').html(responseData);// replaces above
 		}
 	});
 
