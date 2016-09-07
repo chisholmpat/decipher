@@ -30,7 +30,7 @@
                  <div class="item active" >
                     <h4>Step 1: Click Capture to select an image</h4>
                     <button class="enterText" ng-click="showMe=!showMe">{{enterText}}</button>
-<!--
+
                     <form id="uploadForm" onsubmit="translate(event, this)" ng-show="!showMe">
                       <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
                       <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
@@ -39,9 +39,9 @@
                       <input type="submit" class="hidden" id="uploadFile" name="submit" >
                       <div class="capture" id="captureTrigger" href="#myCarousel" data-slide="next">CAPTURE</div>
                     </form>
--->
 
-                    <image-capture ng-show="!showMe" ></image-capture>
+
+                    <!-- <image-capture ng-show="!showMe" ></image-capture> -->
 
                     <!-- <div ng-include="'image-capture.html'" ng-show="!showMe"></div> -->
                     <!-- <div ng-show="!showMe" class="capture" id="captureTrigger" href="#myCarousel" data-slide="next">CAPTURE</div> -->
@@ -58,13 +58,13 @@
                  <div class="item">
                   <!--from language -->
                    <h4>Step 2: Select desired language</h4>
-                   <desired-language></desired-language>
-                    <!-- <select id="languageSelect" name="languageSelect" size="4" href="#myCarousel" data-slide="next">
+                   <!-- <desired-language></desired-language> -->
+                    <select id="languageSelect" name="languageSelect" size="4" href="#myCarousel" data-slide="next">
                       <option value="en" selected>English</option>
                       <option value="es">Spanish</option>
                       <option value="ar">Arabic</option>
                       <option value="ja">Japanese</option>
-                    </select> -->
+                    </select>
                     <br><br>
 
                     <div class="white" >CAPITAL</div><!-- for spacing reasons -->
@@ -72,15 +72,15 @@
                  </div>
 
                  <div class="item">
-                   <h4>Step 3: Click Decipher to translate</h4>
-                   <decipher-pane ></decipher-pane>
-                    <!-- <h4>Step 3: Click Decipher to translate</h4>
+                   <!-- <h4>Step 3: Click Decipher to translate</h4>
+                   <decipher-pane ></decipher-pane> -->
+                    <h4>Step 3: Click Decipher to translate</h4>
                     <form>
                       <div class="form-group">
                         <div id="translatedText"></div>
                         <br><br>
                       </div>
-                    </form>-->
+                    </form>
                     <div class="decipher" id="uploadTrigger" >DECIPHER</div>
                  </div>
 
