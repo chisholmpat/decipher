@@ -67,7 +67,8 @@ option{
   padding-right: 10px;
   margin-left: 40%;
   margin-right: 10%;
-  width: 300px;
+  width: 250px;
+  border-radius: 7px;
   z-index: 1;
   background-color: rgb(16,114,189);
 }
@@ -86,7 +87,8 @@ option{
   padding-right: 10px;
   margin-left: 40%;
   margin-right: 10%;
-  width: 300px;
+  width: 250px;
+  border-radius: 7px;
   z-index: 1;
   background-color: rgb(118,206,88);
 }
@@ -101,11 +103,13 @@ option{
 
 .form-group{
   margin-right: 10%;
-  margin-left: 40%;
+  margin-left: 41%;
   border: 1px solid black;
   border-radius: 25px;
   height: 180px;
-  width: 250px;
+  width: 225px;
+}
+
 }
 .lang-group{
   margin-right: 10%;
@@ -146,7 +150,9 @@ option{
   z-index: 1;
   background-color: #DFDFDF;
 }
-/*carousel code */
+/*====================
+    carousel code
+======================*/
 .carousel-controls{
  position: relative;
   width:300px;

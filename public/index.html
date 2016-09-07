@@ -26,9 +26,10 @@
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
              <!-- Wrapper for carousel items -->
              <div class="carousel-inner">
+               
                  <div class="item active">
                     <h4>Step 1: Click Capture to select an image</h4>
-                    <form id="uploadForm" onsubmit="translate(event, this)">
+                    <form id="uploadForm" onsubmit="translate(event, this)" >
                       <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
                       <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
                       <img class="output" src="placeholder.png" id="output">
@@ -54,13 +55,11 @@
 
                  <div class="item">
                     <h4>Step 3: Click Decipher to translate</h4>
-                    <form>
                       <div class="form-group">
                         <div id="translatedText"></div>
                         <br><br>
                       </div>
-                    </form>
-                    <div class="decipher" id="uploadTrigger" >DECIPHER</div>
+                    <div class="decipher" id="uploadTrigger">DECIPHER</div>
                  </div>
 
                  <div class="carousel-controls">
@@ -78,7 +77,7 @@
                 </div>
 
      	</div> <!-- Carousel -->
-      
+
       <!-- ===========================
                   Javascript
        =========================== -->

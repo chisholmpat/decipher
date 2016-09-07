@@ -24,3 +24,12 @@ function translate(event, form) {
 	event.preventDefault();
 	return false;
 }
+
+/*========================
+				ANGULAR
+========================*/
+var app = angular.module('option',[]);
+app.controller('nameMe' , function(){
+
+});
+app.directive()
