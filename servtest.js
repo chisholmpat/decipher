@@ -20,13 +20,14 @@ var app = express();
 //Set port to 3000
 app.set('port', 3000);
 //body-parser middle-ware
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.json());
 //Define the default server path to /public
 app.use(express.static(__dirname + '/public'));
 //Generic error handling middle-ware, which passes uncaught exceptions to the default Node error handler
+
 app.use(errorHandler);
 //Listen to port 3000, and process environment
 app.listen(process.env.PORT || 3000, function() {
@@ -97,6 +98,46 @@ app.get('/test', function(req, res) {
 /* ================================
     GET data from Client
    ================================ */
+   app.post('/text', function(req, res) {
+    var post_data = req.body.language;
+    console.log(req.headers);
+    checkPost(req, res);  
+    function checkPost(req,res)
+    {
+      console.log(req.body.language);
+    }
+  //   console.log(req.body.language);
+  //   var inputText = req.body.inputText;
+  //   var langIn = req.body.language, langOut = 'en';
+  //   translate(inputText, langIn, langOut);
+
+  // function translate(textIn, langIn, langOut) {
+  //   language_translator.translate({
+  //     text: textIn,
+  //     source: langIn,
+  //     target: langOut
+  //   }, function(err, translation) {
+  //     if (err) {
+  //       console.log('translation error: ' + err);
+  //       res.end(
+  //         "An error occurred during translation.. Please try again."
+  //       );
+  //     } else {
+  //       var translatedText = "";
+  //       var jsonTranslated = JSON.parse(JSON.stringify(translation,
+  //         null, 2));
+  //       for (var key in jsonTranslated.translations) {
+  //         translatedText += jsonTranslated.translations[key].translation;
+  //       }
+  //       res.end(translatedText);
+  //     }
+  //   });
+  // }
+  res.end("req.body failed to parse");
+});//End post
+
+
+
 /* ================================
 		Post to Multer API
    ================================ */

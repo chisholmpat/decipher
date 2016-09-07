@@ -4,7 +4,8 @@
   "dependencies": {
     "express": "4.13.3",
     "multer": "1.1.0",
-    "watson-developer-cloud": "^2.1.2"
+    "watson-developer-cloud": "^2.1.2",
+    "body-parser": "1.15.2"
   },
   "description": "Repo for decipher",
   "main": "servtest.js",

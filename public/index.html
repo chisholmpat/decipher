@@ -31,7 +31,7 @@
                     <h4>Step 1: Click Capture to select an image</h4>
                     <button class="enterText" ng-click="showMe=!showMe">{{enterText}}</button>
 
-                    <form id="uploadForm" onsubmit="translate(event, this)" ng-show="!showMe">
+                    <form id="uploadForm" onsubmit="translateText(event, this)" ng-show="!showMe">
                       <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
                       <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
                       <img class="output" src="placeholder.png" id="output">
@@ -49,7 +49,7 @@
                     <div ng-show="showMe">
                         <div class="item">
                               <H4>Enter Text</H4>
-                              <textarea class="form-control" placeholder="Type text here"rows="5"></textarea>
+                              <textarea id="inputText" class="form-control" placeholder="Type text here"rows="5"></textarea>
                               <div class="capture" href="#myCarousel" data-slide="next">Enter</div>
                           </div>
                     </div>
