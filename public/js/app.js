@@ -28,8 +28,30 @@ function translate(event, form) {
 /*========================
 				ANGULAR
 ========================*/
-var app = angular.module('option',[]);
-app.controller('nameMe' , function(){
+var app = angular.module('myApp',[]);
 
+app.controller('button',function($scope){
+	$scope.showMe=false;
+	$scope.$watch('showMe',function(){
+		$scope.enterText=$scope.showMe ? 'Capture photo':'Enter Text';
+	});
 });
-app.directive()
+
+app.directive('imageCapture',function(){
+  return{
+    restrict:'E',
+    templateUrl:'image-capture.html'
+  };
+});
+app.directive('decipherPane', function(){
+	return{
+		restrict:'E',
+		templateUrl:'decipher-pane.html'
+	};
+});
+app.directive('desiredLanguage', function(){
+	return{
+		restrict:'E',
+		templateUrl:'desired-language.html'
+	};
+});

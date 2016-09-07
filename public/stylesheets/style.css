@@ -23,6 +23,14 @@ option{
   text-align: center;
   padding-top:12px;
 }
+#languageSelect{
+  margin-right: 10%;
+  margin-left: 10%;
+  border: 1px solid black;
+  border-radius: 25px;
+  height: 180px;
+  width: 220px;
+}
 
 /*===========================
     Custom Classes
@@ -60,7 +68,18 @@ option{
 .hidden {
   display:none;
 }
-
+.enterText{
+  color: white;
+  padding: 10px;
+  padding-right: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 150px;
+  height:40px;
+  border-radius: 7px;
+  z-index: 1;
+  background-color: rgb(61,190,190);
+}
 .capture {
   color: white;
   padding: 10px;
@@ -120,6 +139,7 @@ option{
   width: 220px;
 }
 
+
 .list-group{
   width:310px;
   margin-left: 50px;
@@ -149,6 +169,16 @@ option{
   width: 300px;
   z-index: 1;
   background-color: #DFDFDF;
+}
+.form-control{
+  color:hotpink;
+  background-color: #DFDFDF
+  margin-right: 10%;
+  margin-left: 41%;
+  border: 1px solid black;
+  border-radius: 25px;
+  height: 180px;
+  width: 225px;
 }
 /*====================
     carousel code
