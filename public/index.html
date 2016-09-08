@@ -9,15 +9,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    </head>
-   <body ng-controller="button" ng-app="myApp">
-
+   <body ng-controller="button" ng-app="myApp" onload="form1.reset();">
 
       <!-- ===========================
             Landing Container
        =========================== -->
 
     <div class="header">
-      <h1>Decipher<img class="headerimg" src="watson.png"/></h1>
+      <h2><img class="headerimg" src="watson.png"/>
+          <strong>Decipher</strong>
+      </h2>
     </div>
     <!-- ===========================
              Carousel code
@@ -28,10 +29,10 @@
              <div class="carousel-inner">
 
                  <div class="item active" >
-                    <h4>Step 1: Select 'Enter Text' or 'Capture'.</h4>
                     <button class="enterText" ng-click="showMe=!showMe">{{enterText}}</button>
 
-                    <form id="uploadForm" onsubmit="translateText(event, this)" ng-show="!showMe">
+                    <form id="uploadForm" onsubmit="translate(event, this)" ng-show="!showMe">
+                      <h4>Step 1: Click Capture to select an image</h4>
                       <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
                       <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
                       <img class="output" src="placeholder.png" id="output">
@@ -48,10 +49,12 @@
 
                     <div ng-show="showMe">
                         <div class="item">
-                              <H4>Enter Text</H4>
-                              <textarea id="inputText" class="form-control" placeholder="Type text here"rows="5"></textarea>
+                          <form id="form1">
+                              <h4>Step 1: Click Enter to send text</h4>
+                              <textarea  class="form-control" placeholder="Type text here" rows="5"></textarea>
                               <div class="capture" href="#myCarousel" data-slide="next">Enter</div>
-                          </div>
+                          </form>
+                        </div>
                     </div>
                  </div>
 
@@ -72,16 +75,18 @@
                  </div>
 
                  <div class="item">
-                   <!-- <h4>Step 3: Click Decipher to translate</h4>
-                   <decipher-pane ></decipher-pane> -->
+                   <button class="enterText" onClick="history.go(0)" VALUE="Refresh">Translate again?</button>
+                   <!-- <decipher-pane ></decipher-pane> -->
                     <h4>Step 3: Click Decipher to translate</h4>
-                    <form>
-                      <div class="form-group">
-                        <div id="translatedText"></div>
-                        <br><br>
-                      </div>
-                    </form>
-                    <div class="decipher" id="uploadTrigger" >DECIPHER</div>
+
+                       <form>
+                         <div class="form-group">
+                           <div id="translatedText"></div>
+                           <br><br>
+                         </div>
+                       </form>
+                       <div class="decipher" id="uploadTrigger" >DECIPHER</div>
+
                  </div>
 
                 <!-- carousel controls and logic-->
