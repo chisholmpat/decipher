@@ -196,8 +196,8 @@ app.post('/api/photo', function(req, res) {
   function translate(outText, language) {
     language_translator.translate({
       text: outText,
-      source: 'en',
-      target: language
+      source: language,
+      target: 'en'
     }, function(err, translation) {
       if (err) {
         console.log('translation error: ' + err);
