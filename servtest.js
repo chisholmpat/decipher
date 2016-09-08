@@ -28,7 +28,6 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
-app.use(formidable.parse());
 app.use(errorHandler);
 //Listen to port 3000, and process environment
 app.listen(process.env.PORT || 3000, function() {
@@ -99,40 +98,7 @@ app.get('/test', function(req, res) {
 /* ================================
     GET data from Client
    ================================ */
-app.post('/text', function(req, res) {
-  // console.log(req.headers);
-  // console.log(req.url);
-  // console.log(req.body.language);
-  // console.log(req.body.inputText);
-  //   console.log(req.body.language);
-  var inputText = req.body.inputText;
-  var langIn = req.body.language,
-    langOut = 'en';
-  translate(inputText, langIn, langOut);
 
-  function translate(textIn, langIn, langOut) {
-    language_translator.translate({
-      text: textIn,
-      source: langIn,
-      target: langOut
-    }, function(err, translation) {
-      if (err) {
-        console.log('translation error: ' + err);
-        res.end(
-          "An error occurred during translation.. Please try again."
-        );
-      } else {
-        var translatedText = "";
-        var jsonTranslated = JSON.parse(JSON.stringify(translation,
-          null, 2));
-        for (var key in jsonTranslated.translations) {
-          translatedText += jsonTranslated.translations[key].translation;
-        }
-        res.end(translatedText);
-      }
-    });
-  }
-}); //End post
 /* ================================
     Post to Multer API
    ================================ */
@@ -198,6 +164,43 @@ app.post('/api/photo', function(req, res) {
       text: outText,
       source: language,
       target: 'en'
+    }, function(err, translation) {
+      if (err) {
+        console.log('translation error: ' + err);
+        res.end(
+          "An error occurred during translation.. Please try again."
+        );
+      } else {
+        var translatedText = "";
+        var jsonTranslated = JSON.parse(JSON.stringify(translation,
+          null, 2));
+        for (var key in jsonTranslated.translations) {
+          translatedText += jsonTranslated.translations[key].translation;
+        }
+        res.end(translatedText);
+      }
+    });
+  }
+}); //End post
+
+app.use(formidable.parse());
+
+app.post('/text', function(req, res) {
+  // console.log(req.headers);
+  // console.log(req.url);
+  // console.log(req.body.language);
+  // console.log(req.body.inputText);
+  //   console.log(req.body.language);
+  var inputText = req.body.inputText;
+  var langIn = req.body.language,
+    langOut = 'en';
+  translate(inputText, langIn, langOut);
+
+  function translate(textIn, langIn, langOut) {
+    language_translator.translate({
+      text: textIn,
+      source: langIn,
+      target: langOut
     }, function(err, translation) {
       if (err) {
         console.log('translation error: ' + err);
