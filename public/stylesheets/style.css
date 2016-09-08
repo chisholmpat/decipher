@@ -4,6 +4,7 @@
 
 html, body {
   max-width: 100%;
+  margin: auto;
   overflow-x: hidden;
   background-color: #DFDFDF;
 }
@@ -14,13 +15,12 @@ p{
 
 h1{
   margin-left: 30px;
-  margin-bottom: 20px;
   font-size: 50px;
 }
 
 option{
   height:44px;
-  width:100%;
+  width:220px;
   text-align: center;
   padding-top:12px;
 }
@@ -28,9 +28,14 @@ option{
   margin-right: 10%;
   margin-left: 10%;
   border: 1px solid black;
+  border-radius: 25px;
   height: 180px;
-  width: 20%;
+  width: 220px;
 }
+/*#wrap{
+  width:380px;
+  margin: 0 auto;
+}*/
 
 /*===========================
     Custom Classes
@@ -40,14 +45,14 @@ option{
   background-color: #272B2B;
   color: white;
   text-align: center;
-  height: 280px;
+  height: 260px;
   padding-top: 1px
 }
 
 .headerimg{
-  text-align: right;
+  text-align:inherit;
   height:240px;
-  width:240px;
+  width:220px;
   overflow: auto;
 }
 
@@ -72,20 +77,29 @@ option{
   color: white;
   padding: 10px;
   padding-right: 10px;
-  margin-bottom: 30px;
-  width: 20%;
+  margin: auto;
+  /*margin-left: 10%;
+  margin-right: 10%;*/
+  width: 150px;
   height:40px;
   border-radius: 7px;
   z-index: 1;
   background-color: rgb(61,190,190);
+  border: 1px solid rgb(61,190,190);
+}
+.enterText:hover{
+  border: 1px solid rgb(61,190,190);
+  border-color: rgb(61,190,190);
+  background: white;
+  color:rgb(61,190,190);
+  cursor: pointer;
 }
 .capture {
   color: white;
   padding: 10px;
   padding-right: 10px;
-  margin-left: 40%;
-  margin-right: 10%;
-  width: 20%;
+  margin:auto;
+  width: 250px;
   border-radius: 7px;
   z-index: 1;
   background-color: rgb(16,114,189);
@@ -103,9 +117,10 @@ option{
   color: white;
   padding: 10px;
   padding-right: 10px;
-  margin-left: 40%;
-  margin-right: 10%;
-  width: 20%;
+  margin: auto;
+  /*margin-left: 40%;
+  margin-right: 10%;*/
+  width: 250px;
   border-radius: 7px;
   z-index: 1;
   background-color: rgb(118,206,88);
@@ -120,18 +135,20 @@ option{
 }
 
 .form-group{
-  margin-right: 10%;
-  margin-left: 40%;
+  margin: auto;
+  /*margin-right: 10%;
+  margin-left: 41%;*/
   border: 1px solid black;
   border-radius: 25px;
   height: 180px;
-  width: 20%;
+  width: 225px;
 }
 
 }
 .lang-group{
-  margin-right: 10%;
-  margin-left: 10%;
+  margin: auto;
+  /*margin-right: 10%;
+  margin-left: 10%;*/
   border: 1px solid black;
   border-radius: 25px;
   height: 180px;
@@ -163,19 +180,22 @@ option{
   color: #DFDFDF;
   padding: 10px;
   padding-right: 10px;
-  margin-left: 40%;
-  margin-right: 10%;
+  margin: auto;
+  /*margin-left: 40%;
+  margin-right: 10%;*/
   width: 300px;
   z-index: 1;
   background-color: #DFDFDF;
 }
 .form-control{
-  color:hotpink;
-  background-color: #DFDFDF
-  margin-right: 10%;
-  margin-left: 41%;
+  color:rgb(16,114,189);
+  background-color:white;
+  margin: auto;
+  /*margin-right: 10%;
+  margin-left: 41%;*/
   border: 1px solid black;
   border-radius: 25px;
+  padding-bottom: 20px;
   height: 180px;
   width: 225px;
 }
@@ -202,5 +222,6 @@ option{
 .carousel-indicators .active{
   background-color: limegreen;
 }
+
 #slideshow { padding:0;border-radius: 25px; }
 .carousel img { border-radius: 25px; }

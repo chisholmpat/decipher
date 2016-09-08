@@ -16,9 +16,11 @@
             Landing Container
        =========================== -->
 
-    <div class="header">
-      <h1>Decipher<img class="headerimg" src="watson.png"/></h1>
-    </div>
+       <div class="header">
+         <h2><img class="headerimg" src="watson.png"/>
+             <strong>Decipher</strong>
+         </h2>
+       </div>
     <!-- ===========================
              Carousel code
      =========================== -->
@@ -28,10 +30,11 @@
              <div class="carousel-inner">
 
                  <div class="item active" >
-                    <h4>Step 1: Select 'Enter Text' or 'Capture'.</h4>
+
                     <button class="enterText" ng-click="showMe=!showMe">{{enterText}}</button>
 
                     <form id="uploadForm" onsubmit="translateText(event, this)" ng-show="!showMe">
+                      <h4>Step 1: Click Capture to select an image</h4>
                       <input type="file" class="hidden" id="captureFile" name="userPhoto"/>
                       <input type="button" id="test" class="hidden" value="Is this your file?"  onclick="ResizeImage()"/>
                       <img class="output" src="placeholder.png" id="output">
@@ -48,7 +51,7 @@
 
                     <div ng-show="showMe">
                         <div class="item">
-                              <H4>Enter Text</H4>
+                          <h4>Step 1: Click Enter to send text</h4>
                               <textarea id="inputText" name="inputText" class="form-control" placeholder="Type text here"rows="5"></textarea>
                               <div class="capture" href="#myCarousel" data-slide="next">Enter</div>
                           </div>
