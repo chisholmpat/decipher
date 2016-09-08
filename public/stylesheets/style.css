@@ -202,6 +202,5 @@ option{
 .carousel-indicators .active{
   background-color: limegreen;
 }
-
 #slideshow { padding:0;border-radius: 25px; }
 .carousel img { border-radius: 25px; }
