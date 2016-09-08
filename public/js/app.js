@@ -17,7 +17,8 @@ function translateText(event, form) {
       url = '/api/photo';
     } else {
       console.log('text selected');
-      if ($("inputText").val() == null)
+      var text = $("#inputText").val();
+      if (text.length < 1)
       {
       	alert("You did not enter any text. Please go back and enter text");
       	return false;
