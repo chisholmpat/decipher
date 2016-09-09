@@ -22,7 +22,7 @@
 
           average = total / count
           if (average > 0.5 && langIn !== 'en') {
-            translate(outText, langIn, langOut, res, req);
+            translate(outText, langIn, langOut, req, res);
           } //End nested if
           else if (average > 0.5 && langIn == 'en') {
             res.end(outText);

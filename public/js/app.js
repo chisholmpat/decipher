@@ -2,9 +2,9 @@ var choice = false;
 
 function translateText(event, form) {
     var postData = new FormData();
-    var url = '',
-      language = $('#languageSelect')[0];
+    var url = '', language = $('#languageSelect')[0]; 
     postData.append('language', language.options[language.selectedIndex].value);
+
     if (choice == false) {
       if (validateFile(form.userPhoto.files[0])) {
         postData.append('userPhoto', form.userPhoto.files[0], form.userPhoto.files[0].name);
@@ -22,6 +22,7 @@ function translateText(event, form) {
         $('#translatedText').html('Something was wrong with your input. Please go back and try again.');
       } //End nested if
     } //End if
+
     event.preventDefault();
     return false;
   } //End translateText
