@@ -1,18 +1,28 @@
-//var language = document.getElementById("languageSelect");
-var language = $('#languageSelect')[0]; //should be equal to getElementById need ())[0]<-- because have to indicate a single dom object
 var choice = false;
 
 function translateText(event, form) {
     var postData = new FormData();
-    var url;
+    var url = '', language = $('#languageSelect')[0];
     postData.append('language', language.options[language.selectedIndex].value);
+    
     if (choice == false) {
       console.log('picture selected');
+      if (form.userPhoto.files[0] == null)
+      {
+      	alert("You did not select a photo. Please go back and make a selection.")
+      	return false;
+      }
       postData.append('userPhoto', form.userPhoto.files[0], form.userPhoto.files[
         0].name);
       url = '/api/photo';
     } else {
       console.log('text selected');
+      var text = $("#inputText").val();
+      if (text.length < 1)
+      {
+      	alert("You did not enter any text. Please go back and enter text");
+      	return false;
+      }
       postData.append('inputText', $("#inputText").val());
       url = '/text';
     }
@@ -61,5 +71,3 @@ app.directive('desiredLanguage', function() {
     templateUrl: 'desired-language.html'
   };
 });
-
-function btnCheck() {}

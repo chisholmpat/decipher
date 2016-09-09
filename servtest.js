@@ -184,7 +184,6 @@ app.post('/api/photo', function(req, res) {
 }); //End post
 
 app.use(formidable.parse());
-
 app.post('/text', function(req, res) {
   // console.log(req.headers);
   // console.log(req.url);
