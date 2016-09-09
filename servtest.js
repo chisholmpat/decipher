@@ -74,7 +74,6 @@ var language_translator = new languageTranslatorV2({
   Post to Multer API
 ================================ */
 app.post('/api/photo', function(req, res) {
-  var out = "";
   upload(req, res, function(err) {
     if (!req.file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
       res.end("This application does not support that file extension.");
@@ -83,8 +82,8 @@ app.post('/api/photo', function(req, res) {
       res.end("Error uploading file.");
     }
     var filename = req.file.destination + Date.now() + "resized.png";
-    var langIn = req.body.language,
-      langOut = 'en';
+    var langIn = req.body.language, langOut = 'en';
+    
     jimp.read(req.file.path, function(err, file) {
       if (err) {
         console.log('I/O error:' + err);
@@ -96,7 +95,6 @@ app.post('/api/photo', function(req, res) {
             res.end('An error occured while processing your image. Please try again.');
           } else {
             analyzeText(filename, langIn, langOut, res, req);
-            console.log(out);
             fs.unlinkSync(req.file.path);
           } //End else
         }); //End write function
