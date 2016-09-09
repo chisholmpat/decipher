@@ -75,15 +75,13 @@ var language_translator = new languageTranslatorV2({
 ================================ */
 app.post('/api/photo', function(req, res) {
   upload(req, res, function(err) {
-    if (!req.file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
-      res.end("This application does not support that file extension.");
-    }
     if (err) {
       res.end("Error uploading file.");
     }
+    
     var filename = req.file.destination + Date.now() + "resized.png";
     var langIn = req.body.language, langOut = 'en';
-    
+
     jimp.read(req.file.path, function(err, file) {
       if (err) {
         console.log('I/O error:' + err);
@@ -109,6 +107,12 @@ app.use(formidable.parse()); //Handles parsing data contained in FormData object
 //Executes translation function on text
 app.post('/text', function(req, res) {
   var inputText = req.body.inputText;
-  var langIn = req.body.language,langOut = 'en';
-  translate(inputText, langIn, langOut, req, res);
+  var langIn = req.body.language, langOut = 'en';
+
+  if (langIn == 'en') {
+    res.end(inputText);
+  }
+  else {
+    translate(inputText, langIn, langOut, req, res);
+  }//End if
 });//End post
