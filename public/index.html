@@ -60,7 +60,8 @@
 
                  <div class="item">
                   <!--from language -->
-                   <h4>Step 2: Select your language.</h4>
+                  <div ng-show="!showMe">
+                   <h4>Step 2: Select your input language.</h4>
                    <!-- <desired-language></desired-language> -->
                     <select id="languageSelect" name="languageSelect" size="4" >
                       <option value="en" selected>English</option>
@@ -71,7 +72,20 @@
                     <br><br>
 
                     <div class="white" >CAPITAL</div><!-- for spacing reasons -->
-
+                  </div>
+                  
+                    <div ng-show="showMe">
+                        <div class="item">
+                          <h4>Step 2: Select your language.</h4>
+                           <select id="languageSelect" name="languageSelect" size="4" >
+                             <option value="en" selected>English</option>
+                             <option value="es">Spanish</option>
+                             <option value="ar">Arabic</option>
+                             <option value="ja">Japanese</option>
+                           </select>
+                           <br><br>
+                          </div>
+                    </div>
                  </div>
 
                  <div class="item">
