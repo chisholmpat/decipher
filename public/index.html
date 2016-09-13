@@ -58,35 +58,23 @@
 
                  <div class="item">
                   <!--from language -->
-                  <div ng-show="!showMe">
+                  <!-- <div ng-show="!showMe"> -->
                    <h4>Step 2: Select your input language.</h4>
                    <!-- <desired-language></desired-language> -->
                     <select id="languageSelect" name="languageSelect" size="4" >
                       <option value="en" selected>English</option>
                       <option value="es">Spanish</option>
                       <option value="ar">Arabic</option>
-                      <option value="ja">Japanese</option>
+                      <!-- <option value="ja">Japanese</option>
+                      <option ng-show="showMe" value="zh-hk">Chinese singapore</option>
+                      <option ng-show="showMe" value="ko">Korean</option> -->
+                      <option ng-show="showMe" value="fr">French</option>
+                      <option ng-show="showMe" value="pt-br">Portugese (Brazil)</option>
+                      <option ng-show="showMe" value="it">Italian</option>
                     </select>
                     <br><br>
 
                     <div class="white" >CAPITAL</div><!-- for spacing reasons -->
-                  </div>
-
-                    <div ng-show="showMe">
-                        <div class="item">
-                          <h4>Step 2: Select your language.</h4>
-                           <select id="languageSelect" name="languageSelect" size="4" >
-                             <option value="en" selected>English</option>
-                             <option value="es">Spanish</option>
-                             <option value="ar">Arabic</option>
-                             <option value="ja">Japanese</option>
-                             <option>test</option>
-                             <option>test</option>
-                             <option>test</option>
-                           </select>
-                           <br><br>
-                          </div>
-                    </div>
                  </div>
 
                  <div class="item">
