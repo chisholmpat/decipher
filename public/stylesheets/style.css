@@ -134,7 +134,8 @@ option{
   border-radius: 25px;
   height: 180px;
   width: 225px;
-  font-size: 22px;
+  font-size: 50px;
+  color: blue;
 }
 
 }
@@ -184,9 +185,9 @@ option{
   border: 1px solid black;
   border-radius: 25px;
   padding-bottom: 20px;
-  height: 180px;
-  width: 225px;
-  font-size: 22px;
+  height: 100px;
+  width: 400px;
+  font-size: 40px;
 }
 /*====================
     carousel code
