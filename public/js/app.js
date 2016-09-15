@@ -42,7 +42,7 @@ function executePost(dataObject, url) {
   } //End executePost
 
 function validateFile(file) {
-    var regex = /\.(jpg|jpeg|png|gif)$/;
+    var regex = /\.(jpg|jpeg|png)$/;
 
     if (file == null) {
       return false;
