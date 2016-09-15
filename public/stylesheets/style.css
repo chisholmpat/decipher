@@ -127,18 +127,6 @@ option{
   cursor: pointer;
 }
 
-.form-group{
-  margin: auto;
-  margin-bottom:10px;
-  border: 1px solid black;
-  border-radius: 25px;
-  height: 180px;
-  width: 225px;
-  font-size: 50px;
-  color: blue;
-}
-
-}
 .lang-group{
   margin: auto;
   border: 1px solid black;
@@ -185,9 +173,22 @@ option{
   border: 1px solid black;
   border-radius: 25px;
   padding-bottom: 20px;
-  height: 100px;
+  height: 200px;
   width: 400px;
   font-size: 40px;
+}
+.form-group{
+  margin: auto;
+  margin-bottom:10px;
+  border: 1px solid black;
+  border-radius: 25px;
+  height: 200px;
+  width: 300px;
+  font-size: 40px;
+  color: blue;
+  word-wrap: break-word;
+  overflow: scroll;
+  background-color: white;
 }
 /*====================
     carousel code
